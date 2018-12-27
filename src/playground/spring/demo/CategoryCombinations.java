@@ -5,12 +5,13 @@ public class CategoryCombinations {
 	static String[][] cats = {{"human","dwarf","elf"},{"warrior","rogue","mage"}};
 //			[["human","dwarf","elf"],["warrior","rogue","mage"]];
 	
+
 	private static String getCombinations() {
 		String result = "";
 		for (String[] cat: cats) {
 //			System.out.println(cat);
 			for (String item: cat) {
-				System.out.println(item);
+				result = result + item;
 			}
 		}
 		return result;
