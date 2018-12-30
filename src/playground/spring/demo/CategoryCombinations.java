@@ -3,8 +3,9 @@ package playground.spring.demo;
 public class CategoryCombinations {
 	
 	
-	static String[][] cats = {{"human","dwarf","elf"},{"warrior","rogue","mage"}};
+//	static String[][] cats = {{"human","dwarf","elf"},{"warrior","rogue","mage"}};
 //	static String[][] cats = {{"A","B"},{"a","b"},{"1","2"}};
+	static String[][] cats = {{"0","1"},{"0","1"},{"0","1"},{"0","1"}};
 //			[["human","dwarf","elf"],["warrior","rogue","mage"]];
 	
 	private static String processOneEntry(String catsAbove, int level) {
