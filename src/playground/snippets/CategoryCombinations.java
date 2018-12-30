@@ -1,4 +1,4 @@
-package playground.spring.demo;
+package playground.snippets;
 
 public class CategoryCombinations {
 	
