@@ -53,7 +53,7 @@ public class aVeryBigSum {
 
 	public static void main(String[] args) {
 		
-		byte[] testCase = {126,126,126,3};
+		byte[] testCase = {127,127,127,127};
 		
 		int verify = 0;
 		for (byte item : testCase) {
