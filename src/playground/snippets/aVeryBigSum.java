@@ -32,7 +32,13 @@ public class aVeryBigSum {
 		result[1] = 0;
 		
 		for (byte item : nums) {
-			
+			System.out.println("times: " + result[0] + ", remainder: " + result[1] + ", adding " + item + ".");
+			if (Byte.MAX_VALUE - item < result[1]) {
+				result[0] += 1;
+				result[1] = (byte) (item - (Byte.MAX_VALUE - result[1]));
+			} else {
+				result[1] += item;
+			}
 		}
 		
 		
@@ -41,7 +47,7 @@ public class aVeryBigSum {
 
 	public static void main(String[] args) {
 		
-		byte[] testCase = {127,2};
+		byte[] testCase = {126,3};
 		
 		int verify = 0;
 		for (byte item : testCase) {
@@ -51,7 +57,8 @@ public class aVeryBigSum {
 		
 		System.out.println("Verify: " + verify);
 		
-		
+		byte[] zwischenergebnis = calculateAsByte(testCase);
+		for (byte item : zwischenergebnis) { System.out.println(item); }
 		
 
 	}
