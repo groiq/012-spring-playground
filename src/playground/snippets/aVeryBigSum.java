@@ -12,14 +12,44 @@ package playground.snippets;
  * Ignore "both sums equal" cases for now.
  * 
  * Data type is byte, which is the smallest integer-ish data type in Java (-127-128).
+ * 
+ * No, wait - I'll just return the result in a form like "twice 128 and 33".
+ * 
+ * That is: return a two-integer array - first integer tells how often it crossed over, second one the "remainder".
+ * Data type is byte.
+ * Throw at another function that converts to int and calculates the result.
+ * 
+ * Third function calculates everything as an int.
+ * 
  */
 
 public class aVeryBigSum {
 	
-	
+	static byte[] calculateAsByte(byte[] nums) {
+		
+		byte[] result = new byte[2];
+		result[0] = 0;
+		result[1] = 0;
+		
+		for (byte item : nums) {
+			
+		}
+		
+		
+		return result;
+	}
 
 	public static void main(String[] args) {
 		
+		byte[] testCase = {127,2};
+		
+		int verify = 0;
+		for (byte item : testCase) {
+			int itemInt = (int) item;
+			verify += itemInt;
+		}
+		
+		System.out.println("Verify: " + verify);
 		
 		
 		
