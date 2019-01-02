@@ -32,7 +32,7 @@ public class aVeryBigSum {
 		result[1] = 0;
 		
 		for (byte item : nums) {
-			System.out.println("times: " + result[0] + ", remainder: " + result[1] + ", adding " + item + ".");
+//			System.out.println("times: " + result[0] + ", remainder: " + result[1] + ", adding " + item + ".");
 			if (Byte.MAX_VALUE - item < result[1]) {
 				result[0] += 1;
 				result[1] = (byte) (item - (Byte.MAX_VALUE - result[1]));
@@ -44,10 +44,16 @@ public class aVeryBigSum {
 		
 		return result;
 	}
+	
+	static int byteToInt(byte[] input) {
+		int result;
+		result = ((int)input[0] * Byte.MAX_VALUE) + (int) input[1];
+		return result;
+	}
 
 	public static void main(String[] args) {
 		
-		byte[] testCase = {126,3};
+		byte[] testCase = {126,126,126,3};
 		
 		int verify = 0;
 		for (byte item : testCase) {
@@ -55,11 +61,15 @@ public class aVeryBigSum {
 			verify += itemInt;
 		}
 		
-		System.out.println("Verify: " + verify);
 		
 		byte[] zwischenergebnis = calculateAsByte(testCase);
-		for (byte item : zwischenergebnis) { System.out.println(item); }
+		System.out.print("zwischenergebnis: ");
+		for (byte item : zwischenergebnis) { System.out.print(item + "; "); }
+		System.out.println();
 		
+		System.out.println("Result: " + byteToInt(zwischenergebnis));
+		System.out.println("Verify: " + verify);
+			
 
 	}
 
