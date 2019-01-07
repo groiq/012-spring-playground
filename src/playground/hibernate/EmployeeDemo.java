@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 public class EmployeeDemo {
 	
 	static Session session;
+	static SessionFactory factory;
 	static String[] firstNames = {"Tick","Trick","Track"};
 	static String[] lastNames = {"Bonecrusher","Shadowfox","Lightbender"};
 	static String[] companies = {"Traders Council","Moria","the forest"};
@@ -14,7 +15,7 @@ public class EmployeeDemo {
 	public static void main(String[] args) {
 		
 		// initialize everything
-		SessionFactory factory = new Configuration()
+		factory = new Configuration()
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Employee.class)
 				.buildSessionFactory();
@@ -44,6 +45,11 @@ public class EmployeeDemo {
 		System.out.println("Creating a new employee...");
 		Employee theEmployee = new Employee(firstName,lastName,company);
 		System.out.println(theEmployee);
+		System.out.println("throwing employee at database");
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		session.save(theEmployee);
+		session.getTransaction().commit();
 	}
 
 	
