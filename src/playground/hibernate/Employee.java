@@ -24,6 +24,9 @@ public class Employee {
 	private String company;
 	
 	// unlike the tutorial, I didn't make a parameterless constructor. If in trouble, check for this reason.
+	public Employee() {
+		
+	}
 	
 	public Employee(String firstName, String lastName, String company) {
 		super();

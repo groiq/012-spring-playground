@@ -23,11 +23,14 @@ public class EmployeeDemo {
 		try {
 
 			// create objects
-			for (int i=0;i<firstNames.length;i++) {
-				createEmployee(firstNames[i],lastNames[i],companies[i]);
-			}
+//			for (int i=0;i<firstNames.length;i++) {
+//				createEmployee(firstNames[i],lastNames[i],companies[i]);
+//			}
 		
 			// retrieve an object by primary key
+			// retrieve the second employee
+			System.out.println("fetching second employee...");
+			System.out.println(getEmployee(2));
 
 			// query objects by company column
 
@@ -38,6 +41,15 @@ public class EmployeeDemo {
 			factory.close();
 		}
 
+		
+	}
+
+	private static Employee getEmployee(int id) {
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		Employee theEmployee = session.get(Employee.class, id);
+		session.getTransaction().commit();
+		return theEmployee;
 		
 	}
 
