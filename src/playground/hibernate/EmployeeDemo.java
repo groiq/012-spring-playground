@@ -1,5 +1,7 @@
 package playground.hibernate;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -31,11 +33,24 @@ public class EmployeeDemo {
 			// retrieve the second employee
 			System.out.println("fetching second employee...");
 			System.out.println(getEmployee(2));
+			
+			// okay, enough with the extracted methods. I'll have one more session and do the other two tasks...
+			session = factory.getCurrentSession();
+			session.beginTransaction();
 
 			// query objects by company column
-			
+			List<Employee> corporateStaff =  session.createQuery("from Employee s where s.company='Moria'").list();
+			for (Employee theEmployee : corporateStaff) {
+				System.out.println("Working at that company:");
+				System.out.println(theEmployee);
+			}
 
 			// delete object by primary key
+			Employee theFiredOne = session.get(Employee.class, 1);
+			session.delete(theFiredOne);
+			
+			// ... and do another commit
+			session.getTransaction().commit();
 
 
 		} finally {
