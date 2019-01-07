@@ -24,6 +24,8 @@ public class Employee {
 	private String company;
 	
 	// unlike the tutorial, I didn't make a parameterless constructor. If in trouble, check for this reason.
+	// Actually, this throws an error on the line Employee theEmployee = session.get(Employee.class, id);
+	// Apparently hibernate somehow creates a new object and fills it with the values from the database or something.
 	public Employee() {
 		
 	}
