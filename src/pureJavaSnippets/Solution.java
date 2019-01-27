@@ -16,10 +16,19 @@ public class Solution {
     	// for now, get number of sheets...
     	// that's modulo + 1
     	
+    	// number of sheets - sheet of current page = turning from back
+    	// that's again modulo + 1 (sheet of pg 1 = first sheet = no turning from front, so 0)
+    	int curSheet = (p % 2 + 1);
+    	int sheets = (n % 2 + 1);
+    	
+    	int laterSheets = (sheets - curSheet);
+    	
+    	int result;
+    	if (laterSheets > curSheet) { result = curSheet; }
+    	else { result = laterSheets; }
     	
     	
-    	
-    	return n;
+    	return result;
 
     }
 
