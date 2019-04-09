@@ -20,3 +20,7 @@ create a method that returns the start page
 
 set up the corresponding html page with html scaffolding
 
+run it!
+
+activate liveReload in browser
+
