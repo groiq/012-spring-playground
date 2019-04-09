@@ -1,5 +1,6 @@
 package com.example.demo;
 
+<<<<<<< HEAD
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,5 +17,8 @@ class MainController {
 		
 		return modelAndView;
 	}
+=======
+public class MainController {
+>>>>>>> parent of 0cb8c2c... annotated controller class
 
 }

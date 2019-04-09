@@ -12,6 +12,7 @@ Thymeleaf
 Web
 add DevTools after that (if necessary)
 
+<<<<<<< HEAD
 neue Klasse erstellen
 
 annotieren als Controller
@@ -24,3 +25,5 @@ run it!
 
 activate liveReload in browser
 
+=======
+>>>>>>> parent of 0cb8c2c... annotated controller class
