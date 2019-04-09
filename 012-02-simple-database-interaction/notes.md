@@ -8,6 +8,7 @@ edit starters:
 DevTools
 H2
 Lombok
+set lombok to <scope>provided</scope>
 Thymeleaf
 Web
 add DevTools after that (if necessary)
@@ -25,4 +26,6 @@ run it!
 activate liveReload in browser
 
 add dynamic content via thymeleaf
+
+(conditional:) create a helper class (for database entries)
 
