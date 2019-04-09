@@ -24,3 +24,5 @@ run it!
 
 activate liveReload in browser
 
+add dynamic content via thymeleaf
+

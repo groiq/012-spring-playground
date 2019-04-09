@@ -12,6 +12,7 @@ class MainController {
 		
 		ModelAndView modelAndView = new ModelAndView("indexBackendSide");
 		modelAndView.setViewName("indexBackendSide"); // alternative to parametrized constructor
+		modelAndView.addObject("title", "some page for practice");
 		
 		return modelAndView;
 		
