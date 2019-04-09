@@ -12,3 +12,7 @@ Thymeleaf
 Web
 add DevTools after that (if necessary)
 
+neue Klasse erstellen
+
+annotieren als Controller
+
