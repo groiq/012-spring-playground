@@ -16,3 +16,5 @@ neue Klasse erstellen
 
 annotieren als Controller
 
+create a method that returns the start page
+
