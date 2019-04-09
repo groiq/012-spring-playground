@@ -11,6 +11,7 @@ Lombok
 set lombok to <scope>provided</scope>
 Thymeleaf
 Web
+JPA
 add DevTools after that (if necessary)
 
 neue Klasse erstellen
@@ -28,4 +29,8 @@ activate liveReload in browser
 add dynamic content via thymeleaf
 
 (conditional:) create a helper class (for database entries)
+
+set up the database stuff
+
+add database contents to page
 
