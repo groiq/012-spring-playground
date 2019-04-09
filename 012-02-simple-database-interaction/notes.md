@@ -18,3 +18,9 @@ annotieren als Controller
 
 create a method that returns the start page
 
+set up a corresponding html page
+
+run it!
+
+activate liveReload in browser
+
