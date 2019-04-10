@@ -14,6 +14,8 @@ Web
 JPA
 add DevTools after that (if necessary)
 
+enable h2 (database) console(?)
+
 neue Klasse erstellen
 
 annotieren als Controller
@@ -30,7 +32,10 @@ add dynamic content via thymeleaf
 
 (conditional:) create a helper class (for database entries)
 
-set up the database stuff
+(set up the database stuff)
+
+create a repo interface for the data object class
+(one class and one repo interface for each database table?)
 
 add database contents to page
 
