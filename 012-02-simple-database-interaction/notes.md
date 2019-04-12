@@ -30,7 +30,13 @@ activate liveReload in browser
 
 add dynamic content via thymeleaf
 
+check h2 database console
+
 (conditional:) create a helper class (for database entries)
+
+create repository interface
+
+
 
 (set up the database stuff)
 
