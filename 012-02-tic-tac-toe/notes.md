@@ -36,12 +36,19 @@ try out a basic link
 
 Okay, I've done a static link with static text. Next try a static link with dynamic text.
 
+I'll work with the values 0,1 and 2. Rework the temp array filler so that it uses those values.
+
+Now, display not the value of the field, but a sign dependent of the value of the field.
+
+check conditionals in the thymeleaf tutorial
+
 ------------------------------ Now Marker -------------------------------
 
+add a link only if the value is 0
 
 check out loops
 
-try a loop to an url made from the indices
+try a link to an url made from the indices
 
 
 
