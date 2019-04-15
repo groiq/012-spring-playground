@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,11 @@
   
   <h2>Play Tic Tac Toe</h2>
   
+  <table border="1">
+  	<tr th:each="row : ${boardData}">
+  		<td th:each="field : ${row}"><span th:text="${field}">X</span></td>
+	</tr>
+  </table>
   
 
   </body>
