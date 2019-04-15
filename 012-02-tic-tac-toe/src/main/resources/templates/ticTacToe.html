@@ -15,15 +15,19 @@
   <h2>Play Tic Tac Toe</h2>
   
   <table>
-  	<tr  th:each="row : ${boardData}">
-  		<td class="board" th:each="field : ${row}">
-			<a href="./tictactoe">
+  	<tr  th:each="row,rowIndex : ${boardData}">
+  		<td class="board" th:each="field,colIndex : ${row}">
+			
 				<span th:switch="${field}">
-					<span th:case="'0'">-</span>
+					<span th:case="'0'">
+						<a th:href="@{/tictactoe/{row}/{col}(row=${rowIndex.index},col=${colIndex.index})}" href="./tictactoe">-</a>
+					</span>
 					<span th:case="'1'">X</span>
 					<span th:case="'2'">O</span>
 				</span>
-			</a>
+				<!-- <span th:text="${rowIndex.index}">row index</span> -->
+				<!-- <span th:text="${colIndex.index}">col index</span> -->
+			
   		</td>
 	</tr>
   </table>

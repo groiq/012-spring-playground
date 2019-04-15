@@ -42,13 +42,15 @@ Now, display not the value of the field, but a sign dependent of the value of th
 
 check conditionals in the thymeleaf tutorial
 
------------------------------- Now Marker -------------------------------
-
 add a link only if the value is 0
 
 check out loops
 
+write index to document
+
 try a link to an url made from the indices
 
+------------------------------ Now Marker -------------------------------
 
+process this link in the controller
 
