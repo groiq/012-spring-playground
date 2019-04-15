@@ -23,7 +23,13 @@ public class TicTacToeController {
 		
 		System.out.println(row + " + " + col + " = " + (row+col));
 		
-//		System.out.println("in processMove");
+		boardData[row][col] = 1;
+		
+		// check if finished (won or draw)
+		
+		// computer makes his move
+		
+		// again check if finished
 		
 		return ticTacToeBoard();
 	}
