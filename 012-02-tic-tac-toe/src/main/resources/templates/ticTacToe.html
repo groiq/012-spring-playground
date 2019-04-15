@@ -12,7 +12,7 @@
   </head>
   <body>
   
-  <h2>Play Tic Tac Toe</h2>
+  <h1>Play Tic Tac Toe</h2>
   
   <table>
   	<tr  th:each="row,rowIndex : ${boardData}">
@@ -32,7 +32,14 @@
 	</tr>
   </table>
   
-  <p><a href="/tictactoe">Reset / start a new game</a>
+  <h2 th:switch="${status}">
+  	<span th:case="'open'">Your move!</span>
+  	<span th:case="'user'">You win!</span>
+  	<span th:case="'computer'">Computer wins!</span>
+  	<span th:case="'draw'">It's a draw!</span>
+  </h2>
+  
+  <h2><a href="/tictactoe">Reset / start a new game</h2>
 
   </body>
 </html>
