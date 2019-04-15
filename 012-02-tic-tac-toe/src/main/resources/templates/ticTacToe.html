@@ -3,15 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+    	//h2 {color:green;}
+    	.board {border:20px solid #000000; font-size:100px; width:100px; height:100px; text-align:center;}
+    	
+    </style>
     <title>Play Tic Tac Toe</title>
   </head>
   <body>
   
   <h2>Play Tic Tac Toe</h2>
   
-  <table border="1">
-  	<tr th:each="row : ${boardData}">
-  		<td th:each="field : ${row}"><span th:text="${field}">X</span></td>
+  <table>
+  	<tr  th:each="row : ${boardData}">
+  		<td class="board" th:each="field : ${row}">
+  			<span th:text="${field}">X</span>
+  		</td>
 	</tr>
   </table>
   
