@@ -9,13 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class TicTacToeController {
 	
 	private int[][] boardData = new int[3][3];
+	private String status = "open";
 
 	private void checkBoard(int row, int col) {
+		
+		int player = boardData[row][col];
 		
 		// check for a win
 		
 		
-		// check for a draw
+		// check for a draw (i.e. a full board)
 		
 	}
 	
@@ -36,7 +39,7 @@ public class TicTacToeController {
 	@GetMapping("/tictactoe/{row}/{col}")
 	ModelAndView processMove(@PathVariable int row, @PathVariable int col) {
 		
-		System.out.println(row + " + " + col + " = " + (row+col));
+//		System.out.println(row + " + " + col + " = " + (row+col));
 		
 		boardData[row][col] = 1;
 		
@@ -71,7 +74,7 @@ public class TicTacToeController {
 		
 		ModelAndView board = new ModelAndView("ticTacToe");
 		board.addObject("boardData",boardData);
-		
+		board.addObject("status",status);
 		
 		return board;
 	}
