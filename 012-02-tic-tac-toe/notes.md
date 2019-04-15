@@ -32,10 +32,12 @@ Makes me think. I'd need to link to a combination of the two indices.
 Can I also display the indices in the document? That would mean accessing the indices, i.e. using a for loop rather than a foreach loop.
 
 Check on loops as soon as I've tried out basic link syntax.
+try out a basic link
+
+Okay, I've done a static link with static text. Next try a static link with dynamic text.
 
 ------------------------------ Now Marker -------------------------------
 
-try out a basic link
 
 check out loops
 

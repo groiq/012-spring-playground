@@ -17,9 +17,9 @@
   <table>
   	<tr  th:each="row : ${boardData}">
   		<td class="board" th:each="field : ${row}">
-  			<!-- <span th:text="${field}"> -->
-  				<a href="./tictactoe">X</a>
-  			<!-- </span> -->
+			<a href="./tictactoe">
+				<span th:text="${field}">X</span>
+			</a>
   		</td>
 	</tr>
   </table>
