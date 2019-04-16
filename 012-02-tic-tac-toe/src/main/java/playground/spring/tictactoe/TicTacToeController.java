@@ -70,6 +70,7 @@ public class TicTacToeController {
 
 	@GetMapping("/tictactoe/{row}/{col}")
 	ModelAndView processMove(@PathVariable int row, @PathVariable int col) {
+		// for later: check whether this position is already filled, this will prevent glitches.
 		boardData[row][col] = 1;
 		if (checkBoard(row,col)) {
 			status = "user";
