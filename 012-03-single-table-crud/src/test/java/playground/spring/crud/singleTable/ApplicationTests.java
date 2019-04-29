@@ -1,4 +1,4 @@
-package playground.spring.crud.singleTable;
+package playground.spring.crud.singletable;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
