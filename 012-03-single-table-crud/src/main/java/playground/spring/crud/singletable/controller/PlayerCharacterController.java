@@ -13,12 +13,18 @@ public class PlayerCharacterController {
 	@Autowired
 	PlayerCharacterRepository repo;
 	
+	@GetMapping("/autofill")
+	public String autofill(Model theModel) {
+		
+		return listPlayerCharacters(theModel);
+	}
+	
 	@GetMapping("/")
 	public String listPlayerCharacters(Model theModel) {
 		
 		theModel.addAttribute("characters",repo.findAll());
 		
-		return "singleTable.html";
+		return "playerCharacters.html";
 	}
 
 }
