@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +14,17 @@
   			<th>Name</th>
   			<th>Race</th>
   			<th>Profession</th>
+  			<th>Edit</th>
 		</tr>
-		<tr th:each="character : ${characters}">
-			<td th:text="">Entry for char</td>
+		<tr th:each="currentCharacter : ${theCharacters}">
+<!-- 			<td th:text="">Entry for char</td> -->
+<!-- 			<td th:text="">Entry for char</td> -->
+<!-- 			<td th:text="">Entry for char</td> -->
+<!-- 			<td th:text="">Entry for char</td> -->
+				<td>character name</td>
+				<td>character race</td>
+				<td>character profession</td>
+				<td>edit buttons</td>
 		</tr>
   	</table>
 
