@@ -1,10 +1,11 @@
 package playground.spring.crud.singletable.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import playground.spring.crud.singletable.dao.PlayerCharacterRepository;
 import playground.spring.crud.singletable.entity.PlayerCharacter;
@@ -23,6 +24,11 @@ public class PlayerCharacterController {
 ////		return listPlayerCharacters(theModel);
 //		return "playerCharacters";
 //	}
+	private void autofill() {
+		repo.save(new PlayerCharacter("Gavin","human","warrior"));
+		repo.save(new PlayerCharacter("Gylfi","norn","guardian"));
+		repo.save(new PlayerCharacter("Chlegg","asura","necromancer"));
+	}
 	
 	@GetMapping("/")
 //	public ModelAndView listPlayerCharacters() {
@@ -31,7 +37,17 @@ public class PlayerCharacterController {
 //		return modelAndView;
 //	}
 	public String listPlayerCharacters(Model theModel) {
-		theModel.addAttribute("theCharacters", repo.findAll());
+		List<PlayerCharacter> theCharacters = repo.findAll();
+		String dbStatus;
+		if (theCharacters.isEmpty()) {
+			dbStatus = "found empty and autofilled";
+			autofill();
+			theCharacters = repo.findAll();
+		} else {
+			dbStatus = "found filled";
+		}
+		theModel.addAttribute("theCharacters", theCharacters);
+		theModel.addAttribute("dbStatus", dbStatus);
 		return "playerCharacters";
 	}
 

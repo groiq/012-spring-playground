@@ -21,14 +21,17 @@
 <!-- 			<td th:text="">Entry for char</td> -->
 <!-- 			<td th:text="">Entry for char</td> -->
 <!-- 			<td th:text="">Entry for char</td> -->
-				<td>character name</td>
-				<td>character race</td>
-				<td>character profession</td>
+				<td th:text="${currentCharacter.name}">character name</td>
+				<td th:text="${currentCharacter.race}">character race</td>
+				<td th:text="${currentCharacter.profession}">character profession</td>
 				<td>edit buttons</td>
 		</tr>
   	</table>
+  	
+  	<p>database status: <span th:text="${dbStatus}">database status</span></p>
+  	<p>number of characters: <span th:text="${#lists.size(theCharacters)}">(number)</span></p>
 
-	<p><a href="./autofill">autofill</a></p>
+	
 
   </body>
 </html>
