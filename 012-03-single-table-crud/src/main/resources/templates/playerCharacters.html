@@ -24,9 +24,11 @@
 				<td th:text="${currentCharacter.name}">character name</td>
 				<td th:text="${currentCharacter.race}">character race</td>
 				<td th:text="${currentCharacter.profession}">character profession</td>
-				<td>edit buttons</td>
+				<td><a th:href="@{/{id}/Update(id=${currentCharacter.id})}" href="/">Update</a> / <a th:href="@{/{id}/Delete(id=${currentCharacter.id})}" href="/">Delete</a></td>
 		</tr>
   	</table>
+  	
+  	<p><a href="/create">Create a new character</a></p>
   	
   	<p>database status: <span th:text="${dbStatus}">database status</span></p>
   	<p>number of characters: <span th:text="${#lists.size(theCharacters)}">(number)</span></p>
