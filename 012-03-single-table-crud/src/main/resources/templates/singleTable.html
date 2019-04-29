@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player characters</title>
+  </head>
+  <body>
+  
+  	<h2>Player characters</h2>
+  	
+  	<table border="1">
+  		<tr>
+  			<th>Name</th>
+  			<th>Race</th>
+  			<th>Profession</th>
+		</tr>
+		<tr th:each="character : ${characters}">
+			<td th:text="">Entry for char</td>
+		</tr>
+  	</table>
+
+  </body>
+</html>
