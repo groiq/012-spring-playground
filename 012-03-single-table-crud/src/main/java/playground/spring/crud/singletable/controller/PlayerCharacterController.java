@@ -72,10 +72,10 @@ public class PlayerCharacterController {
 
 
 	@PostMapping("/save")
-	public ModelAndView saveCharacter(PlayerCharacter theCharacter) {
+	public String saveCharacter(PlayerCharacter theCharacter) {
 		repo.save(theCharacter);
-		ModelAndView modelAndView = new ModelAndView("redirect:/");
-		
-		return modelAndView;
+//		ModelAndView modelAndView = new ModelAndView("redirect:/");
+		return "redirect:/";
+//		return modelAndView;
 	}
 }
