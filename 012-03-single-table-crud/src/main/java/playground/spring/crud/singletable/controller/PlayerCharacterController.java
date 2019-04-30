@@ -55,21 +55,25 @@ public class PlayerCharacterController {
 	
 	@GetMapping("/create")
 	public ModelAndView createCharacter() {
+		lastActionMsg = "new character saved.";
 		ModelAndView modelAndView = new ModelAndView("updateform");
 		modelAndView.addObject("playerCharacter", new PlayerCharacter());
 		return modelAndView;
 	}
 	
 	@GetMapping("/{id}/update")
-	public ModelAndView updateCharacter() {
+	public ModelAndView updateCharacter(@PathVariable int id) {
+		lastActionMsg = "character updated.";
 		ModelAndView modelAndView = new ModelAndView("updateform");
-		
+		PlayerCharacter thePlayerCharacter = repo.findById(id).get();
+		modelAndView.addObject("playerCharacter", thePlayerCharacter);
 		return modelAndView;
 	}
 
 
 	@PostMapping("/save")
-	public ModelAndView saveCharacter() {
+	public ModelAndView saveCharacter(PlayerCharacter theCharacter) {
+		repo.save(theCharacter);
 		ModelAndView modelAndView = new ModelAndView("redirect:/");
 		
 		return modelAndView;
