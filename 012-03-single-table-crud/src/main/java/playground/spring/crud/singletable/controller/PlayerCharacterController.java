@@ -47,16 +47,26 @@ public class PlayerCharacterController {
 		return modelAndView;
 	}
 	
-	@GetMapping("{id}/delete")
+	@GetMapping("/{id}/delete")
 	public String deleteCharacter(Model theModel, @PathVariable int id) {
 		repo.deleteById(id);
 		lastActionMsg = "Character deleted.";
 		return "redirect:/";
 	}
 	
-	// implement create
+	@GetMapping("/create")
+	public ModelAndView createCharacter() {
+		ModelAndView modelAndView = new ModelAndView("updateform");
+		
+		return modelAndView;
+	}
 	
-	// implement update
+	@GetMapping("/{id}/update")
+	public ModelAndView updateCharacter() {
+		ModelAndView modelAndView = new ModelAndView("updateform");
+		
+		return modelAndView;
+	}
 
 
 }
