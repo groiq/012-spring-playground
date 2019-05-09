@@ -23,3 +23,10 @@
 hs_err_pid*
 /bin/
 src/hibernate.cfg.xml
+
+# project 12-04-shopping-by-recipe
+12-04-shopping-by-recipe/HELP.md
+12-04-shopping-by-recipe/target/
+12-04-shopping-by-recipe/mvn*
+12-04-shopping-by-recipe/.mvn*
+12-04-shopping-by-recipe/src/main/resources/config
