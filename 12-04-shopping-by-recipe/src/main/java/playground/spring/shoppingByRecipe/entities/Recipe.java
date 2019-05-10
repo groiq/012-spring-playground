@@ -1,8 +1,12 @@
 package playground.spring.shoppingByRecipe.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +25,8 @@ public class Recipe {
 	
 	@NonNull
 	private String name;
+	
+	@ManyToMany
+	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
 
 }
