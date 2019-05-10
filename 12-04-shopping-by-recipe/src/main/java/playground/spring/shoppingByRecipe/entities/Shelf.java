@@ -36,11 +36,10 @@ public class Shelf {
 	@NonNull
 	private int position;
 	
-	@OneToMany(mappedBy = "shelf")
-	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	/*
-	 * Relation between shelf and ingredient is bidirectional for practicing purposes.
-	 * Arguably unneccessary because looking up the contents of a shelf is not a basic functionality.
+	 * Was going to make the relationship to Ingredient bidirectional,
+	 * but then I'd have to write a setter *and* constructor by hand, and I don't really need it anyway.
 	 */
 
+	
 }
