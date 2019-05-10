@@ -26,6 +26,16 @@ public class Shelf {
 	@NonNull
 	private String name;
 	
+	/*
+	 * Position of the shelf in the store.
+	 * 
+	 * I'll just assume that the arrangement of shelves in the store is implemented once and then unchanged.
+	 * So no need for a linked list.
+	 * I'll just use the position field to handle sorting during database lookup.
+	 */
+	@NonNull
+	private int position;
+	
 	@OneToMany(mappedBy = "shelf")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	/*
