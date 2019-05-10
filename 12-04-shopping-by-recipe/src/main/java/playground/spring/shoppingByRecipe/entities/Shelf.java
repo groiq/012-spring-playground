@@ -28,5 +28,9 @@ public class Shelf {
 	
 	@OneToMany(mappedBy = "shelf")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	/*
+	 * Relation between shelf and ingredient is bidirectional for practicing purposes.
+	 * Arguably unneccessary because looking up the contents of a shelf is not a basic functionality.
+	 */
 
 }
