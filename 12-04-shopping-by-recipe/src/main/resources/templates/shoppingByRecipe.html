@@ -10,6 +10,13 @@
   <h1>Shopping by Recipe</h1>
   
   <p>Select recipe:</p>
+  <ul>
+  	<li th:each="curRecipe : ${recipes}">
+  		<a th:href="@{/shopping-by-recipe/{id}(id=${curRecipe.id})}">
+  			<span th:text="${curRecipe.name}">name of recipe</span>
+  		</a>
+ 	</li>
+  </ul>
   
   <p><a href="/shopping-by-recipe/fill">Auto-fill data</a></p>
 
