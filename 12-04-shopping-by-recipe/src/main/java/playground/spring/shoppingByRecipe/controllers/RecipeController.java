@@ -48,6 +48,8 @@ public class RecipeController {
 		System.out.println("test queries here:");
 		System.out.println(ingredients.someIngredientQuery());
 		System.out.println(recipes.findAll());
+		System.out.println(ingredients.flatIngredients());
+		System.out.println(ingredients.ingredientByRecipeSortByShelf());
 		System.out.println("----------------------------------");
 		return "redirect:/shopping-by-recipe";
 	}
