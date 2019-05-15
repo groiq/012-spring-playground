@@ -1,6 +1,7 @@
 package playground.spring.shoppingByRecipe.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -24,7 +25,7 @@ public class Ingredient {
 	private String name;
 	
 	@NonNull
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Shelf shelf;
 	
 
