@@ -1,9 +1,17 @@
 package playground.spring.shoppingByRecipe.daos;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import playground.spring.shoppingByRecipe.entities.Ingredient;
 import playground.spring.shoppingByRecipe.entities.Recipe;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
+	
+	@Query(value = "select * from ingredient i where i.shelf_id = 1", nativeQuery = true)
+	public List<Ingredient> findIngredientsForRecipe(@Param("RecipeId") int recipeId);
 
 }
