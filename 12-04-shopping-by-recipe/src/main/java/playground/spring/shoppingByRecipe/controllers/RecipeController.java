@@ -1,5 +1,7 @@
 package playground.spring.shoppingByRecipe.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import playground.spring.shoppingByRecipe.daos.IngredientRepository;
 import playground.spring.shoppingByRecipe.daos.RecipeRepository;
 import playground.spring.shoppingByRecipe.daos.ShelfRepository;
+import playground.spring.shoppingByRecipe.entities.Ingredient;
 import playground.spring.shoppingByRecipe.entities.Recipe;
 import playground.spring.shoppingByRecipe.sampleData.SampleDataFiller;
 
@@ -49,7 +52,7 @@ public class RecipeController {
 		System.out.println(ingredients.someIngredientQuery());
 		System.out.println(recipes.findAll());
 		System.out.println(ingredients.flatIngredients());
-		System.out.println(ingredients.ingredientByRecipeSortByShelf());
+		System.out.println(ingredients.ingredientByRecipeSortByShelf(10));
 		System.out.println("----------------------------------");
 		return "redirect:/shopping-by-recipe";
 	}
@@ -57,9 +60,8 @@ public class RecipeController {
 	@GetMapping("/shopping-by-recipe/{id}")
 	public ModelAndView viewShoppingList(@PathVariable int id) {
 		ModelAndView modelAndView = new ModelAndView("viewShoppingList");
-		Recipe theRecipe = recipes.findById(id).get();
-		System.out.println(theRecipe);
-		
+		List<Ingredient> ingredientsForRecipe = ingredients.ingredientByRecipeSortByShelf(id);
+		System.out.println(ingredientsForRecipe);
 //		System.out.println(recipes.findById(id));
 //		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
 //		System.out.println(ingredientsForRecipe);

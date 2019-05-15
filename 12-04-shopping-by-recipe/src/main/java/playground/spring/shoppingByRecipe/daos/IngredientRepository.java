@@ -18,9 +18,11 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Integer>
 	public List<Ingredient> flatIngredients();
 	
 	@Query(value = "select ingredient.* from ingredient join shelf join recipe_ingredients "
-			+ "where recipe_ingredients.recipe_id = 10 "
+			+ "where recipe_ingredients.recipe_id = :recipeId "
 			+ "and recipe_ingredients.ingredients_id = ingredient.id "
 			+ "and ingredient.shelf_id = shelf.id order by shelf.position", nativeQuery = true)
-	public List<Ingredient> ingredientByRecipeSortByShelf();
+	public List<Ingredient> ingredientByRecipeSortByShelf(@Param("recipeId") int recipeId);
+	
+	
 
 }
