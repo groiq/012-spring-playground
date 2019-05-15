@@ -44,11 +44,20 @@ public class RecipeController {
 		return "redirect:/shopping-by-recipe";
 	}
 	
+	@GetMapping("/shopping-by-recipe/test-queries")
+	public String testQueries() {
+		System.out.println("----------------------------------");
+		System.out.println("test queries here:");
+		System.out.println(ingredients.someIngredientQuery());
+		System.out.println("----------------------------------");
+		return "redirect:/shopping-by-recipe";
+	}
+	
 	@GetMapping("/shopping-by-recipe/{id}")
 	public ModelAndView viewShoppingList(@PathVariable int id) {
 		ModelAndView modelAndView = new ModelAndView("viewShoppingList");
-		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
-		System.out.println(ingredientsForRecipe);
+//		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
+//		System.out.println(ingredientsForRecipe);
 		return modelAndView;
 	}
 
