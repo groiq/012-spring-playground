@@ -11,7 +11,6 @@ import playground.spring.shoppingByRecipe.entities.Recipe;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
 	
-	@Query(value = "select * from ingredient i where i.shelf_id = 1", nativeQuery = true)
-	public List<Ingredient> findIngredientsForRecipe(@Param("RecipeId") int recipeId);
+	
 
 }
