@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import playground.spring.shoppingByRecipe.daos.IngredientRepository;
 import playground.spring.shoppingByRecipe.daos.RecipeRepository;
 import playground.spring.shoppingByRecipe.daos.ShelfRepository;
+import playground.spring.shoppingByRecipe.dbViewObjects.FlatIngredientRepository;
 import playground.spring.shoppingByRecipe.entities.Ingredient;
 import playground.spring.shoppingByRecipe.entities.Recipe;
 import playground.spring.shoppingByRecipe.sampleData.SampleDataFiller;
@@ -24,6 +25,8 @@ public class RecipeController {
 	private RecipeRepository recipes;
 	@Autowired
 	private ShelfRepository shelves;
+	@Autowired
+	private FlatIngredientRepository flatIngredients;
 	
 	@GetMapping("/shopping-by-recipe")
 	public ModelAndView shoppingByRecipe() {
@@ -53,6 +56,7 @@ public class RecipeController {
 		System.out.println(recipes.findAll());
 		System.out.println(ingredients.flatIngredients());
 		System.out.println(ingredients.ingredientByRecipeSortByShelf(10));
+		System.out.println(flatIngredients.findAll());
 		System.out.println("----------------------------------");
 		return "redirect:/shopping-by-recipe";
 	}
