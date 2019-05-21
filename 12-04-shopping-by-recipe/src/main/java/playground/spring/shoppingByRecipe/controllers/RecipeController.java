@@ -12,8 +12,9 @@ import playground.spring.shoppingByRecipe.daos.IngredientRepository;
 import playground.spring.shoppingByRecipe.daos.RecipeRepository;
 import playground.spring.shoppingByRecipe.daos.ShelfRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatIngredientRepository;
+import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelf;
+import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelfRepository;
 import playground.spring.shoppingByRecipe.entities.Ingredient;
-import playground.spring.shoppingByRecipe.entities.Recipe;
 import playground.spring.shoppingByRecipe.sampleData.SampleDataFiller;
 
 @Controller
@@ -25,8 +26,11 @@ public class RecipeController {
 	private RecipeRepository recipes;
 	@Autowired
 	private ShelfRepository shelves;
+	
 	@Autowired
 	private FlatIngredientRepository flatIngredients;
+	@Autowired
+	private FlatShelfRepository flatShelves;
 	
 	@GetMapping("/shopping-by-recipe")
 	public ModelAndView shoppingByRecipe() {
@@ -50,14 +54,29 @@ public class RecipeController {
 	
 	@GetMapping("/shopping-by-recipe/test-queries")
 	public String testQueries() {
+		
 		System.out.println("----------------------------------");
+		
 		System.out.println("test queries here:");
 		System.out.println(ingredients.someIngredientQuery());
 		System.out.println(recipes.findAll());
 		System.out.println(ingredients.flatIngredients());
 		System.out.println(ingredients.ingredientByRecipeSortByShelf(10));
 		System.out.println(flatIngredients.findAll());
+		
 		System.out.println("----------------------------------");
+		
+		List<FlatShelf> flatShelvesList = flatShelves.findAll();
+		System.out.println(flatShelvesList);
+		for (FlatShelf flatShelf : flatShelvesList) {
+			System.out.println(flatShelf);
+			for (Ingredient curIngredient : flatShelf.getIngredients()) {
+				System.out.println(curIngredient);
+			}
+		}
+		
+		System.out.println("----------------------------------");
+		
 		return "redirect:/shopping-by-recipe";
 	}
 	
