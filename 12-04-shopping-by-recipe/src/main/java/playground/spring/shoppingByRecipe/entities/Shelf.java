@@ -36,15 +36,15 @@ public class Shelf {
 	@NonNull
 	private int position;
 	
-	@OneToMany(mappedBy = "shelf", cascade = CascadeType.ALL)
-	private List<Ingredient> ingredients;
-	
-	public String toString() {
-		String result;
-//		result = "";
-		result = id + ": " + name + " with " + ingredients.size() + " ingredients";
-		return result;
-	}
+//	@OneToMany(mappedBy = "shelf", cascade = CascadeType.ALL)
+//	private List<Ingredient> ingredients;
+//	
+//	public String toString() {
+//		String result;
+////		result = "";
+//		result = id + ": " + name + " with " + ingredients.size() + " ingredients";
+//		return result;
+//	}
 
 	
 }

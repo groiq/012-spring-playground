@@ -26,16 +26,16 @@ public class Ingredient {
 	private String name;
 	
 	@NonNull
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "shelf_id")
 	private Shelf shelf;
 
-	public String toString() {
-		String result;
-//		result = "this is an ingredient toString()";
-		result = this.getId() + ": " + this.getName() + " on shelf " + this.getShelf().getName();
-		return result;
-	}
+//	public String toString() {
+//		String result;
+////		result = "this is an ingredient toString()";
+//		result = this.getId() + ": " + this.getName() + " on shelf " + this.getShelf().getName();
+//		return result;
+//	}
 
 	
 }

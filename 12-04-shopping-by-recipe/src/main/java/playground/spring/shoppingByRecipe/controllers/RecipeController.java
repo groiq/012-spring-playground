@@ -12,6 +12,7 @@ import playground.spring.shoppingByRecipe.daos.IngredientRepository;
 import playground.spring.shoppingByRecipe.daos.RecipeRepository;
 import playground.spring.shoppingByRecipe.daos.ShelfRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatIngredientRepository;
+import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelf;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelfRepository;
 import playground.spring.shoppingByRecipe.entities.Ingredient;
 import playground.spring.shoppingByRecipe.entities.Shelf;
@@ -66,10 +67,10 @@ public class RecipeController {
 		System.out.println(testShelf);
 		System.out.println(testShelf.getId());
 		System.out.println(testShelf.getName());
-		List<Ingredient> ingredientList = testShelf.getIngredients();
-		for (Ingredient ingredient : ingredientList) {
-			System.out.println(ingredient.getName());
-		}
+//		List<Ingredient> ingredientList = testShelf.getIngredients();
+//		for (Ingredient ingredient : ingredientList) {
+//			System.out.println(ingredient.getName());
+//		}
 //		System.out.println(testIngredient.getShelf());
 //		System.out.println(testIngredient);
 //		System.out.println(ingredients.findAll());
@@ -84,14 +85,17 @@ public class RecipeController {
 		
 		System.out.println("----------------------------------");
 		
-//		List<FlatShelf> flatShelvesList = flatShelves.findAll();
-//		System.out.println(flatShelvesList);
-//		for (FlatShelf flatShelf : flatShelvesList) {
-//			System.out.println(flatShelf.getName() + ":");
-//			for (Ingredient curIngredient : flatShelf.getIngredients()) {
-//				System.out.println("- " + curIngredient.getName());
-//			}
-//		}
+		List<FlatShelf> flatShelvesList = flatShelves.findAll();
+		System.out.println(flatShelvesList);
+		for (FlatShelf flatShelf : flatShelvesList) {
+			System.out.println(flatShelf.getName() + ":");
+			for (Ingredient curIngredient : flatShelf.getIngredients()) {
+				System.out.println("- " + curIngredient.getName());
+			}
+		}
+		for (FlatShelf flatShelf : flatShelvesList) {
+			System.out.println(flatShelf);
+		}
 		
 		System.out.println("----------------------------------");
 		
