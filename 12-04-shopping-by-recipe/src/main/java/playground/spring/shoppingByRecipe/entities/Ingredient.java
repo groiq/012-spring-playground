@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
@@ -25,9 +26,16 @@ public class Ingredient {
 	private String name;
 	
 	@NonNull
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "shelf_id")
 	private Shelf shelf;
-	
+
+	public String toString() {
+		String result;
+//		result = "this is an ingredient toString()";
+		result = this.getId() + ": " + this.getName() + " on shelf " + this.getShelf().getName();
+		return result;
+	}
 
 	
 }

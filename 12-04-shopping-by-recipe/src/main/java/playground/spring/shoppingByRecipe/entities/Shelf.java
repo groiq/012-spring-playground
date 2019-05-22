@@ -1,8 +1,13 @@
 package playground.spring.shoppingByRecipe.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -31,9 +36,15 @@ public class Shelf {
 	@NonNull
 	private int position;
 	
-	/*
-	 * Was going to make the relationship to Ingredient bidirectional,
-	 * but then I'd have to write a setter *and* constructor by hand, and I don't really need it anyway.
-	 */
+	@OneToMany(mappedBy = "shelf", cascade = CascadeType.ALL)
+	private List<Ingredient> ingredients;
+	
+	public String toString() {
+		String result;
+//		result = "";
+		result = id + ": " + name + " with " + ingredients.size() + " ingredients";
+		return result;
+	}
+
 	
 }
