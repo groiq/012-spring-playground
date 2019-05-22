@@ -1,9 +1,9 @@
 package playground.spring.shoppingByRecipe.dbViewObjects;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,7 +24,7 @@ import playground.spring.shoppingByRecipe.entities.Ingredient;
 @Entity
 @Immutable
 @Subselect(
-		"select shelf.id, shelf.name, shelf.position, ingredient.name as ingredient "
+		"select distinct shelf.id, shelf.name, shelf.position, ingredient.name as ingredient "
 				+ "from ingredient join shelf "
 				+ "on ingredient.shelf_id = shelf.id"
 		)
@@ -40,8 +40,8 @@ public class FlatShelf {
 	@NonNull
 	private int position;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="shelf_id")
-	private List<Ingredient> ingredients = new ArrayList<>();
+	private Set<Ingredient> ingredients;
 
 }
