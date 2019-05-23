@@ -107,6 +107,9 @@ public class RecipeController {
 		ModelAndView modelAndView = new ModelAndView("viewShoppingList");
 		List<Ingredient> ingredientsForRecipe = ingredients.ingredientByRecipeSortByShelf(id);
 		System.out.println(ingredientsForRecipe);
+		for (Ingredient ingredient : ingredientsForRecipe) {
+			System.out.println(ingredient.getName() + " in shelf " + ingredient.getShelf().getName());
+		}
 //		System.out.println(recipes.findById(id));
 //		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
 //		System.out.println(ingredientsForRecipe);
