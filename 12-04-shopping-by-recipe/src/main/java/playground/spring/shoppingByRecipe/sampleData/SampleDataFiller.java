@@ -12,11 +12,13 @@ import playground.spring.shoppingByRecipe.entities.Shelf;
 
 public class SampleDataFiller {
 	
-	private static String[] shelfNames = {"vegetables","side dishes","dairy"};
-	private static String[] ingredientNames = {"papric","tomato","rice","sour cream","cream"};
-	private static int[] ingredientToShelf = {0,0,1,2,2};
-	private static String[] recipeNames = {"duvec","papric sauce","risotto"};
-	private static int[][] recipeToIngredients = {new int[] {0,1,2}, new int[] {0,1,3}, new int[] {2,4}};
+	private static String[] shelfNames = {"vegetables","dry goods","dairy"};
+	private static String[] ingredientNames = {"papric","tomato","potato","onions","rice","oil","vinegar","sour cream","cream"};
+	private static int[] ingredientToShelf = {0,0,0,0,1,1,1,2,2};
+	private static String[] recipeNames = {"potato salad","duvec","papric sauce","risotto"};
+	private static int[][] recipeToIngredients = {new int[] {2,3,5,6}, new int[] {0,1,3,4}, new int[] {0,1,3,7}, new int[] {1,4,8}};
+	
+	
 
 	public static void fill(ShelfRepository shelves, IngredientRepository ingredients, RecipeRepository recipes) {
 
