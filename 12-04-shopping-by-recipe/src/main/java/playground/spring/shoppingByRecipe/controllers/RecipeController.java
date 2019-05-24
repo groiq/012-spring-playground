@@ -1,6 +1,7 @@
 package playground.spring.shoppingByRecipe.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -93,12 +94,24 @@ public class RecipeController {
 				System.out.println("- " + curIngredient.getName());
 			}
 		}
-		for (FlatShelf flatShelf : flatShelvesList) {
-			System.out.println(flatShelf);
-		}
+//		for (FlatShelf flatShelf : flatShelvesList) {
+//			System.out.println(flatShelf);
+//		}
 		
 		System.out.println("----------------------------------");
 		
+		Set<FlatShelf> flatShelvesSet;
+		flatShelvesSet = flatShelves.findFlatShelves();
+//		flatShelvesSet = (Set<FlatShelf>) flatShelves.findAll();
+		for (FlatShelf flatShelf : flatShelvesSet) {
+			System.out.println(flatShelf.getName() + ":");
+			for (Ingredient curIngredient : flatShelf.getIngredients()) {
+				System.out.println("- " + curIngredient.getName());
+			}
+		}
+		
+		System.out.println("----------------------------------");
+
 		return "redirect:/shopping-by-recipe";
 	}
 	
