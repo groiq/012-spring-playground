@@ -22,8 +22,9 @@ public class SampleDataFiller {
 
 	public static void fill(ShelfRepository shelves, IngredientRepository ingredients, RecipeRepository recipes) {
 
-		sampleDataIsSpecific();
-		sampleDataIsAbstract();
+//		sampleDataIsSpecific();
+//		sampleDataIsAbstract();
+		sampleDataIsSemiAbstract();
 
 		
 		List<Shelf> shelvesList = new ArrayList<Shelf>();
@@ -53,6 +54,14 @@ public class SampleDataFiller {
 		ingredients.saveAll(ingredientsList);
 		recipes.saveAll(recipesList);
 
+	}
+	
+	private static void sampleDataIsSemiAbstract() {
+		shelfNames = new String[] {"s0","s1","s2"};
+		ingredientNames = new String[] {"s0-0","s0-1","s1-2","s1-3","s2-4","s2-5"};
+		ingredientToShelf = new int[] {0,0,1,1,2,2};
+		recipeNames = new String[] {"r0","r1"};
+		recipeToIngredients = new int[][] {new int[] {0,1,2}, new int[] {3,4,5}};
 	}
 
 	private static void sampleDataIsAbstract() {
