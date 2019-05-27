@@ -59,8 +59,12 @@ public class SampleDataFiller {
 		
 		int shelfCount;
 		int ingredsPerShelf;
+		int ingredsPerRecipe; // cannot be larger than ingredsPerShelf
+		
 		shelfCount = 3;
 		ingredsPerShelf = 3;
+		ingredsPerRecipe = 2;
+		
 		shelfNames = new String[shelfCount];
 		ingredientNames = new String[shelfCount * ingredsPerShelf];
 		ingredientToShelf = new int[shelfCount * ingredsPerShelf];
@@ -84,14 +88,20 @@ public class SampleDataFiller {
 		System.out.println(Arrays.toString(ingredientNames));
 		System.out.println(Arrays.toString(ingredientToShelf));
 		
-		int ingredsPerRecipe; // cannot be larger than ingredsPerShelf
+		recipeToIngredients = PossibleRecipes.generateRecipes(ingredsPerShelf,ingredsPerRecipe);
+
+		System.out.println(Arrays.toString(recipeToIngredients));
 		
-		ingredsPerRecipe = 2;
+		recipeNames = new String[recipeToIngredients.length];
+		for (int i = 0; i < recipeToIngredients.length; i++) {
+			System.out.println(Arrays.toString(recipeToIngredients[i]));
+			recipeNames[i] = "r" + recipeToIngredients[i][0] + recipeToIngredients[i][1];
+		}
+		System.out.println(Arrays.toString(recipeNames));
 		
 		
-		
-		recipeNames = new String[] {"potato salad","duvec","papric sauce","risotto"};
-		recipeToIngredients = new int[][] {new int[] {2,3,5,6}, new int[] {0,1,3,4}, new int[] {0,1,3,7}, new int[] {1,4,8}};
+//		recipeNames = new String[] {"potato salad","duvec","papric sauce","risotto"};
+//		recipeToIngredients = new int[][] {new int[] {2,3,5,6}, new int[] {0,1,3,4}, new int[] {0,1,3,7}, new int[] {1,4,8}};
 		
 	}
 
