@@ -86,18 +86,49 @@ public class SampleDataFiller {
 		
 		System.out.println(Arrays.toString(shelfNames));
 		System.out.println(Arrays.toString(ingredientNames));
-		System.out.println(Arrays.toString(ingredientToShelf));
+		System.out.println("ingredient to shelf: " + Arrays.toString(ingredientToShelf));
 		
-		recipeToIngredients = PossibleRecipes.generateRecipes(ingredsPerShelf,ingredsPerRecipe);
-
-		System.out.println(Arrays.toString(recipeToIngredients));
-		
-		recipeNames = new String[recipeToIngredients.length];
-		for (int i = 0; i < recipeToIngredients.length; i++) {
-			System.out.println(Arrays.toString(recipeToIngredients[i]));
-			recipeNames[i] = "r" + recipeToIngredients[i][0] + recipeToIngredients[i][1];
+		int[][] recipeSelectors = PossibleRecipes.generateRecipes(ingredsPerShelf, ingredsPerRecipe);
+		recipeNames = new String[recipeSelectors.length];
+		for (int i = 0; i < recipeSelectors.length; i++) {
+//			System.out.println("curr recipe selector: " + Arrays.toString(recipeSelectors[i]));
+			recipeNames[i] = "r";
+			for (int j : recipeSelectors[i]) {
+				recipeNames[i] += j;
+			}
 		}
-		System.out.println(Arrays.toString(recipeNames));
+		System.out.println("recipeNames: " + Arrays.toString(recipeNames));
+
+		System.out.println("ingredientNames: " + Arrays.toString(ingredientNames));
+		
+		
+		recipeToIngredients = new int[recipeNames.length][];
+		
+		for (int i = 0; i < recipeToIngredients.length; i++) {
+			recipeToIngredients[i] = new int[ingredsPerRecipe*shelfCount];
+			for (int j = 0; j < shelfCount; j++) {
+				// values from recipeSelector
+
+				for (int k = 0; k < recipeSelectors[i].length; k++) {
+					int posInIngredientNames = j * ingredsPerShelf + recipeSelectors[i][k];
+					int posInRecipeToIngredients = j * ingredsPerRecipe + k;
+					recipeToIngredients[i][posInRecipeToIngredients] = posInIngredientNames;
+					
+				}
+			}
+			System.out.println("entry in recipeToIngredients: " + Arrays.toString(recipeToIngredients[i]));
+		}
+		
+//		recipeToIngredients = PossibleRecipes.generateRecipes(ingredsPerShelf,ingredsPerRecipe);
+
+//		System.out.println(Arrays.toString(recipeToIngredients));
+		
+//		recipeNames = new String[recipeToIngredients.length];
+//		for (int i = 0; i < recipeToIngredients.length; i++) {
+//			System.out.println(Arrays.toString(recipeToIngredients[i]));
+//			recipeNames[i] = "r" + recipeToIngredients[i][0] + recipeToIngredients[i][1];
+//		}
+//		System.out.println(Arrays.toString(recipeNames));
 		
 		
 //		recipeNames = new String[] {"potato salad","duvec","papric sauce","risotto"};
