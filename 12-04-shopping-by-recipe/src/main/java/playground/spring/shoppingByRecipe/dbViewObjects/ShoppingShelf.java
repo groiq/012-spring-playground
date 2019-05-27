@@ -23,9 +23,12 @@ import playground.spring.shoppingByRecipe.entities.Ingredient;
 @RequiredArgsConstructor
 @Entity
 @Immutable
-@Subselect("select distinct shelf.id, shelf.name, shelf.position, ingredient.name as ingredient"
-		+ "from ingredient join shelf"
-		+ "on ingredient.shelf_id = shelf.id")
+@Subselect("select shelf.id, shelf.name, shelf.position, ingredient.name as ingredient "
+		+ "from ingredient join shelf join recipe_ingredients "
+		+ "where recipe_ingredients.recipe_id = :recipeId "
+		+ "and recipe_ingredients.ingredients_id = ingredient.id "
+		+ "and ingredient.shelf_id = shelf.id "
+		+ "order by shelf.position")
 public class ShoppingShelf {
 
 	@Id
