@@ -119,6 +119,8 @@ public class RecipeController {
 	public ModelAndView viewShoppingList(@PathVariable int id) {
 		ModelAndView modelAndView = new ModelAndView("viewShoppingList");
 		List<Ingredient> ingredientsForRecipe = ingredients.ingredientByRecipeSortByShelf(id);
+		System.out.println("----------------------------------");
+		System.out.println("subpage for recipe " + recipes.findById(id));
 		System.out.println(ingredientsForRecipe);
 		for (Ingredient ingredient : ingredientsForRecipe) {
 			System.out.println(ingredient.getName() + " in shelf " + ingredient.getShelf().getName());
@@ -126,6 +128,7 @@ public class RecipeController {
 //		System.out.println(recipes.findById(id));
 //		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
 //		System.out.println(ingredientsForRecipe);
+		System.out.println("----------------------------------");
 		return modelAndView;
 	}
 
