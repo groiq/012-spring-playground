@@ -15,6 +15,7 @@ import playground.spring.shoppingByRecipe.daos.ShelfRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatIngredientRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelf;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelfRepository;
+import playground.spring.shoppingByRecipe.dbViewObjects.IngredientInShelfRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.ShoppingShelf;
 import playground.spring.shoppingByRecipe.dbViewObjects.ShoppingShelfRepository;
 import playground.spring.shoppingByRecipe.entities.Ingredient;
@@ -30,8 +31,10 @@ public class RecipeController {
 	private RecipeRepository recipes;
 	@Autowired
 	private ShelfRepository shelves;
+//	@Autowired
+//	private ShoppingShelfRepository shoppingShelves;
 	@Autowired
-	private ShoppingShelfRepository shoppingShelves;
+	private IngredientInShelfRepository ingredientsInShelves;
 	
 	@Autowired
 	private FlatIngredientRepository flatIngredients;
@@ -116,6 +119,8 @@ public class RecipeController {
 		
 		System.out.println("----------------------------------");
 
+
+		
 		return "redirect:/shopping-by-recipe";
 	}
 	
@@ -130,14 +135,14 @@ public class RecipeController {
 			System.out.println(ingredient.getName() + " in shelf " + ingredient.getShelf().getName());
 		}
 		System.out.println("----------------------------------");
-		System.out.println("fetching shopping shelves...");
-		Set<ShoppingShelf> shoppingShelfList = shoppingShelves.shoppingListFor(id);
-		for (ShoppingShelf shoppingShelf : shoppingShelfList) {
-			System.out.println(shoppingShelf.getName() + ":");
-			for (Ingredient currIngredient : shoppingShelf.getIngredients()) {
-				System.out.println(" - " + currIngredient.getName());
-			}
-		}
+//		System.out.println("fetching shopping shelves...");
+//		Set<ShoppingShelf> shoppingShelfList = shoppingShelves.shoppingListFor(id);
+//		for (ShoppingShelf shoppingShelf : shoppingShelfList) {
+//			System.out.println(shoppingShelf.getName() + ":");
+//			for (Ingredient currIngredient : shoppingShelf.getIngredients()) {
+//				System.out.println(" - " + currIngredient.getName());
+//			}
+//		}
 		System.out.println("----------------------------------");
 //		System.out.println(recipes.findById(id));
 //		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
