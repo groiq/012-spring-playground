@@ -1,6 +1,9 @@
 package playground.spring.shoppingByRecipe.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,30 +132,44 @@ public class RecipeController {
 		return "redirect:/shopping-by-recipe";
 	}
 	
-	@GetMapping("/shopping-by-recipe/{id}")
-	public ModelAndView viewShoppingList(@PathVariable int id) {
+	@GetMapping("/shopping-by-recipe/{recipeId}")
+	public ModelAndView viewShoppingList(@PathVariable int recipeId) {
 		ModelAndView modelAndView = new ModelAndView("viewShoppingList");
-		List<Ingredient> ingredientsForRecipe = ingredients.ingredientByRecipeSortByShelf(id);
+//		List<Ingredient> ingredientsForRecipe = ingredients.ingredientByRecipeSortByShelf(recipeId);
 		System.out.println("----------------------------------");
-		System.out.println("subpage for recipe " + recipes.findById(id));
-		System.out.println(ingredientsForRecipe);
-		for (Ingredient ingredient : ingredientsForRecipe) {
-			System.out.println(ingredient.getName() + " in shelf " + ingredient.getShelf().getName());
-		}
-		System.out.println("----------------------------------");
-//		System.out.println("fetching shopping shelves...");
-//		Set<ShoppingShelf> shoppingShelfList = shoppingShelves.shoppingListFor(id);
-//		for (ShoppingShelf shoppingShelf : shoppingShelfList) {
-//			System.out.println(shoppingShelf.getName() + ":");
-//			for (Ingredient currIngredient : shoppingShelf.getIngredients()) {
-//				System.out.println(" - " + currIngredient.getName());
-//			}
-//		}
-		System.out.println("----------------------------------");
-//		System.out.println(recipes.findById(id));
-//		List<Ingredient> ingredientsForRecipe = recipes.findIngredientsForRecipe(id);
+		
+		System.out.println("subpage for recipe " + recipes.findById(recipeId).get().getName());
 //		System.out.println(ingredientsForRecipe);
-//		System.out.println("----------------------------------");
+//		for (Ingredient ingredient : ingredientsForRecipe) {
+//			System.out.println(ingredient.getName() + " in shelf " + ingredient.getShelf().getName());
+//		}
+		
+		System.out.println("----------------------------------");
+		
+		List<IngredientInShelf> recipeIngredientsInShelves = ingredientsInShelves.shoppingListFor(recipeId);
+		for (IngredientInShelf ingredientInShelf : recipeIngredientsInShelves) {
+			System.out.println(ingredientInShelf);
+		}
+		
+		Map<String, List<String>> selectShelves = new HashMap<String,List<String>>();
+		
+		// write shelf names and ingredients to a hashmap to send to thymeleaf
+		for (IngredientInShelf currIngredient : recipeIngredientsInShelves) {
+			String currShelf = currIngredient.getShelf();
+			if (!selectShelves.containsKey(currShelf)) {
+				selectShelves.put(currShelf, new ArrayList<String>());
+			}
+			selectShelves.get(currShelf).add(currIngredient.getName());
+		}
+		
+		System.out.println(selectShelves);
+		
+		
+
+		System.out.println("----------------------------------");
+		
+		
+		
 		return modelAndView;
 	}
 
