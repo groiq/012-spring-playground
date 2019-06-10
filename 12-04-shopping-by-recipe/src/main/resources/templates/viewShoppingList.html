@@ -8,8 +8,23 @@
   <body>
   
   <h1>Shopping List for Recipe <span th:text="${recipeName}">(recipeName)</span></h1>
-<!--     	<p th:text="${lastActionMsg}">action message goes here</p> -->
   
+  <ul>
+  	<li th:each="currentShelf : ${selectedShelves}">
+  		From shelf <span th:text="${currentShelf.key}">shelf goes here</span> fetch:
+  		<ul>
+  			<li th:each="currentIngredient : ${currentShelf.value}">
+  				<span th:text="${currentIngredient}">current Ingredient</span>
+  			</li>
+  		</ul>
+  	</li>
+  </ul>
+  
+<!-- 		<tr th:each="currentCharacter : ${theCharacters}"> -->
+<!-- 				<td th:text="${currentCharacter.name}">character name</td> -->
+<!-- 				<td th:text="${currentCharacter.race}">character race</td> -->
+<!-- 				<td th:text="${currentCharacter.profession}">character profession</td> -->
+<!-- 				<td><a th:href="@{/{id}/update(id=${currentCharacter.id})}" href="/">Update</a> / <a th:href="@{/{id}/delete(id=${currentCharacter.id})}" href="/">Delete</a></td> -->
 
   </body>
 </html>
