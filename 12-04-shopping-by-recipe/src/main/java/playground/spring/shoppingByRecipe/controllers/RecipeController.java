@@ -151,24 +151,28 @@ public class RecipeController {
 			System.out.println(ingredientInShelf);
 		}
 		
-		Map<String, List<String>> selectShelves = new HashMap<String,List<String>>();
+		Map<String, List<String>> selectedShelves = new HashMap<String,List<String>>();
 		
 		// write shelf names and ingredients to a hashmap to send to thymeleaf
 		for (IngredientInShelf currIngredient : recipeIngredientsInShelves) {
 			String currShelf = currIngredient.getShelf();
-			if (!selectShelves.containsKey(currShelf)) {
-				selectShelves.put(currShelf, new ArrayList<String>());
+			if (!selectedShelves.containsKey(currShelf)) {
+				selectedShelves.put(currShelf, new ArrayList<String>());
 			}
-			selectShelves.get(currShelf).add(currIngredient.getName());
+			selectedShelves.get(currShelf).add(currIngredient.getName());
 		}
 		
-		System.out.println(selectShelves);
+		System.out.println(selectedShelves);
 		
 		
 
 		System.out.println("----------------------------------");
 		
-		
+		// add objects to the model
+		String theRecipeName = recipes.findById(recipeId).get().getName();
+		// for later: include the recipe name in the IngredientInShelf object, so I won't need a second query 
+		modelAndView.addObject("recipeName",theRecipeName);
+		modelAndView.addObject("selectedShelves", selectedShelves);
 		
 		return modelAndView;
 	}
