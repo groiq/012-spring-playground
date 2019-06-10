@@ -15,9 +15,8 @@ import playground.spring.shoppingByRecipe.daos.ShelfRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatIngredientRepository;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelf;
 import playground.spring.shoppingByRecipe.dbViewObjects.FlatShelfRepository;
+import playground.spring.shoppingByRecipe.dbViewObjects.IngredientInShelf;
 import playground.spring.shoppingByRecipe.dbViewObjects.IngredientInShelfRepository;
-import playground.spring.shoppingByRecipe.dbViewObjects.ShoppingShelf;
-import playground.spring.shoppingByRecipe.dbViewObjects.ShoppingShelfRepository;
 import playground.spring.shoppingByRecipe.entities.Ingredient;
 import playground.spring.shoppingByRecipe.entities.Shelf;
 import playground.spring.shoppingByRecipe.sampleData.SampleDataFiller;
@@ -118,8 +117,14 @@ public class RecipeController {
 		}
 		
 		System.out.println("----------------------------------");
+		
+		System.out.println("fetching all ingredients-in-shelves...");
+		List<IngredientInShelf> allIngredientsInShelves = ingredientsInShelves.findAll();
+		for (IngredientInShelf ingredientInShelf : allIngredientsInShelves) {
+			System.out.println(ingredientInShelf);
+		}
 
-
+		System.out.println("----------------------------------");
 		
 		return "redirect:/shopping-by-recipe";
 	}
