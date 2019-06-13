@@ -24,7 +24,8 @@ public class SampleDataFiller {
 
 //		sampleDataIsSpecific();
 //		sampleDataIsAbstract();
-		sampleDataIsSemiAbstract();
+//		sampleDataIsSemiAbstract();
+		specificSampleData02();
 
 		
 		List<Shelf> shelvesList = new ArrayList<Shelf>();
@@ -56,6 +57,7 @@ public class SampleDataFiller {
 
 	}
 	
+
 	private static void sampleDataIsSemiAbstract() {
 		shelfNames = new String[] {"s0","s1","s2"};
 		ingredientNames = new String[] {"s0-0","s0-1","s1-2","s1-3","s2-4","s2-5"};
@@ -153,6 +155,14 @@ public class SampleDataFiller {
 		recipeToIngredients = new int[][] {new int[] {2,3,5,6}, new int[] {0,1,3,4}, new int[] {0,1,3,7}, new int[] {1,4,8}};
 	}
 	
+	private static void specificSampleData02() {
+		shelfNames = new String[] {"fresh produce","dry goods","dairy"};
+		ingredientNames = new String[] {"onions","potatoes","oil","vinegar","rice","cream"};
+		ingredientToShelf = new int[] {0,0,1,1,1,2};
+		recipeNames = new String[] {"potato salad","risotto","potatoes au gratin"};
+		recipeToIngredients = new int[][] {new int[] {0,1,2,3}, new int[] {0,2,4,5}, new int[] {0,1,5}};
+	}
+
 	public static void main(String[] args) {
 		
 		System.out.println("testing sample data filler");
